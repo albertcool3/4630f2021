@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Birthday Card</string>
+    <string name="PlayMusic">Play Music</string>
+    <string name="StopMusic">Stop Music</string>
+</resources>
