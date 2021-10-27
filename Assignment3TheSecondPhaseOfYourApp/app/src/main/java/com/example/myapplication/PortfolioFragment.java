@@ -83,6 +83,7 @@ public class PortfolioFragment extends Fragment {
                 "FB",
                 "SNAP"
         };
+        webView.loadUrl(BaseURL + urlExtensions[0]);
         numbPick.setDisplayedValues(portfolio);
         numbPick.setMinValue(0);
         numbPick.setMaxValue(portfolio.length - 1);
