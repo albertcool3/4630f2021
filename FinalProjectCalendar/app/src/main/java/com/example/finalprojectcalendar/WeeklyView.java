@@ -3,6 +3,7 @@ package com.example.finalprojectcalendar;
 import static com.example.finalprojectcalendar.CalendarUtils.daysInWeekArray;
 import static com.example.finalprojectcalendar.CalendarUtils.selectedDate;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -130,13 +131,16 @@ public class WeeklyView extends Fragment implements CalendarAdapter.OnItemListen
     private void setEventAdpater() {
     }
 
+    public void newEventAction(View view) {
+        startActivity(new Intent(getActivity(), EventEditActivity.class));
+    }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public void onItemClick(int position, String dayText) {
+    public void onItemClick(int position, LocalDate dayText) {
 
-        String message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate);
-        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
-
+        selectedDate = dayText;
+        setWeekView();
     }
 }

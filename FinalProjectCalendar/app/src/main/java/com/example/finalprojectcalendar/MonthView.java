@@ -156,11 +156,9 @@ public class MonthView extends Fragment implements CalendarAdapter.OnItemListene
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public void onItemClick(int position, String dayText) {
+    public void onItemClick(int position, LocalDate dayText) {
 
-        String message = "Selected Date " + dayText + " " + monthYearFromDate(selectedDate);
-        Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
-
-
+        selectedDate = dayText;
+        setMonthView();
     }
 }
