@@ -16,4 +16,9 @@
         android:title="Events"
         android:icon="@drawable/ic_events"
         />
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_events"
+        />
 </menu>

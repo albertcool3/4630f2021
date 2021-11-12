@@ -16,8 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -33,6 +33,8 @@ public class WeeklyView extends Fragment implements CalendarAdapter.OnItemListen
     private RecyclerView calendarRecyclerView;
     private Button nextWeekView;
     private Button prevMonthAction;
+    private Button eventAction;
+    private ListView eventListView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -102,12 +104,21 @@ public class WeeklyView extends Fragment implements CalendarAdapter.OnItemListen
             }
         });
 
+        eventAction = view.findViewById((R.id.newEventAction));
+        eventAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), EventEditActivity.class));
+            }
+        });
+
         return view;
     }
 
     private void initWidgets(View v) {
         calendarRecyclerView = v.findViewById(R.id.calendarRecyclerView);
         monthYearText = v.findViewById(R.id.monthYearTV);
+        eventListView = v.findViewById(R.id.eventListView);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -125,12 +136,10 @@ public class WeeklyView extends Fragment implements CalendarAdapter.OnItemListen
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
-        setEventAdpater();
+        setEventAdapter();
     }
 
-    private void setEventAdpater() {
-    }
-
+    //Probably wanna delete this later
     public void newEventAction(View view) {
         startActivity(new Intent(getActivity(), EventEditActivity.class));
     }
@@ -142,5 +151,20 @@ public class WeeklyView extends Fragment implements CalendarAdapter.OnItemListen
 
         selectedDate = dayText;
         setWeekView();
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        setEventAdapter();
+    }
+
+
+
+    private void setEventAdapter() {
+        ArrayList<Event> dailyEvents = Event.eventsForDate(CalendarUtils.selectedDate);
+        EventAdapter eventAdapter = new EventAdapter(getActivity().getApplicationContext(), dailyEvents);
+        eventListView.setAdapter(eventAdapter);
     }
 }
