@@ -1,5 +1,6 @@
 package com.example.finalprojectcalendar;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +17,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class SettingsView extends Fragment {
+
+    private Button redButton;
+    FrameLayout frameLayout;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +65,20 @@ public class SettingsView extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings_view, container, false);
+        View view = inflater.inflate(R.layout.fragment_settings_view, container, false);
+        frameLayout = view.findViewById(R.id.page_background);
+        //consider setting all Frame Layouts in other Fragment XML files to have an id with page_background
+        //then make an OnClick listener in the main activity
+
+        redButton = view.findViewById(R.id.ColorChangeRed);
+        redButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View v) {
+                frameLayout.setBackgroundColor(R.color.black);
+            }
+        });
+
+        return view;
     }
 }

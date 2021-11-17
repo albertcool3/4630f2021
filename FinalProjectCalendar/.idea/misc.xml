@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/user/AndroidProjects/4630f2021/FinalProjectCalendar/app/src/main/res/drawable/ic_settings.xml" value="0.21944444444444444" />
         <entry key="..\:/Users/user/AndroidProjects/4630f2021/FinalProjectCalendar/app/src/main/res/layout/activity_event_edit.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/user/AndroidProjects/4630f2021/FinalProjectCalendar/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/user/AndroidProjects/4630f2021/FinalProjectCalendar/app/src/main/res/layout/activity_week_view.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/AndroidProjects/4630f2021/FinalProjectCalendar/app/src/main/res/layout/calendar_cell.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/AndroidProjects/4630f2021/FinalProjectCalendar/app/src/main/res/layout/event_cell.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/user/AndroidProjects/4630f2021/FinalProjectCalendar/app/src/main/res/layout/fragment_month_view.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/user/AndroidProjects/4630f2021/FinalProjectCalendar/app/src/main/res/layout/fragment_settings_view.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/user/AndroidProjects/4630f2021/FinalProjectCalendar/app/src/main/res/layout/fragment_weekly_view.xml" value="0.24010416666666667" />
       </map>
     </option>

@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selectedFragment = null;
+                    //View view = bottomNav.findViewById(item.getItemId());
+                    //view.performClick();
+
                     switch (item.getItemId()) {
                         case R.id.nav_month:
                             selectedFragment = new MonthView();
@@ -63,9 +66,14 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_events:
                             selectedFragment = new EventView();
                             break;
+
+                        case R.id.nav_settings:
+                            selectedFragment = new SettingsView();
+                            break;
                     }
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, selectedFragment).commit();
+
                     return false;
                 }
             };
