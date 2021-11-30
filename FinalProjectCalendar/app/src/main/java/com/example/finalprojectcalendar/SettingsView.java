@@ -3,13 +3,17 @@ package com.example.finalprojectcalendar;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.Switch;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,8 +22,8 @@ import android.widget.FrameLayout;
  */
 public class SettingsView extends Fragment {
 
-    private Button redButton;
-    FrameLayout frameLayout;
+    private Switch aSwitch;
+    private TextView textView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -65,19 +69,31 @@ public class SettingsView extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_settings_view, container, false);
-        frameLayout = view.findViewById(R.id.page_background);
-        //consider setting all Frame Layouts in other Fragment XML files to have an id with page_background
-        //then make an OnClick listener in the main activity
 
-        redButton = view.findViewById(R.id.ColorChangeRed);
-        redButton.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceAsColor")
+        View view = inflater.inflate(R.layout.fragment_settings_view, container, false);
+
+
+        aSwitch = view.findViewById(R.id.mode);
+        textView = view.findViewById(R.id.t1);
+
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            aSwitch.setChecked(true);
+        }
+
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
-                frameLayout.setBackgroundColor(R.color.black);
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    textView.setText("Dark Mode");
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    textView.setText("Light Mode");
+                }
             }
         });
+
+
 
         return view;
     }
