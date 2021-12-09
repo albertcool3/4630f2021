@@ -207,7 +207,7 @@ private fun SaveNoteContent(
             }
         )
 
-        if (datesSelected != "")
+        if (CalendarTaskRouter.prevScreen == Screen.Calendar)
             DaySelectedTextField(daySelected = datesSelected)
         else
             DaySelectedTextField(daySelected = note.daySelected)

@@ -21,8 +21,10 @@ sealed class Screen {
  */
 object CalendarTaskRouter {
     var currentScreen: Screen by mutableStateOf(Screen.Notes)
+    lateinit var prevScreen: Screen
 
     fun navigateTo(destination: Screen) {
+        prevScreen = currentScreen
         currentScreen = destination
     }
 }

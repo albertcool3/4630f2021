@@ -36,7 +36,7 @@ fun Note(
         backgroundColor = background
     ) {
         ListItem(
-            text = { Text(text = note.title, maxLines = 1) },
+            text = { Text(text = note.title + " " + note.daySelected, maxLines = 1) },
             secondaryText = {
                 Text(text = note.content, maxLines = 1)
             },
