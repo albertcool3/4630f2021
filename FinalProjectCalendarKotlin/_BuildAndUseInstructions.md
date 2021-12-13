@@ -1,8 +1,8 @@
-#Build Instructions
-##Download source code from [Github] (https://github.com/albertcool3/4630f2021/tree/main/FinalProjectCalendarKotlin)
-##Using Android Studio Arctic Fox, open the project directory and click on the build button.
+# Build Instructions
+## Download source code from [Github] (https://github.com/albertcool3/4630f2021/tree/main/FinalProjectCalendarKotlin)
+## Using Android Studio Arctic Fox, open the project directory and click on the build button.
 
-##Usage
+## Usage
 The interface has a drawer with five menu items:
 - Events
 - Calendars
