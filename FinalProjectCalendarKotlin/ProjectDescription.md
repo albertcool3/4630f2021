@@ -1,4 +1,4 @@
-#Short Description of Project
+# Short Description of Project
 
 My Calendar App fallsunder the productivity category. Although there are numerous calendar apps out there, suprisingly, there is still room for smaller players:
 - [The Notion App] (https://en.wikipedia.org/wiki/Notion_(productivity_software))
